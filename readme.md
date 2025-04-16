@@ -17,10 +17,25 @@ Una TUI (Text-based UI) desarrollada con [Ink](https://github.com/vadimdemedes/i
 | `Sistema`               | Info en tiempo real de CPU, RAM, versión de Node, uptime, etc.             |
 | `Gestor de paquetes`    | Permite cambiar entre `npm`, `yarn` y `pnpm`, y actualiza `packageManager`. |
 | `Git`                   | Estado actual del repo y comandos rápidos como `add`, `commit`, `push`.    |
+| `Procesos`                   | Monitorea scripts en ejecuciÃ³n y permite finalizarlos desde la TUI.    |
 
 ---
 
 ## 📦 Instalación
+
+### 🔧 Uso global (desde cualquier carpeta)
+
+```bash
+npm install -g dashit-navi
+```
+
+Luego puedes usarlo con:
+
+```bash
+dashit-navi
+```
+
+### 🧪 Uso local (modo desarrollo)
 
 ```bash
 git clone https://github.com/devflorez/dashit-navi.git
@@ -40,7 +55,7 @@ npm run build && node dist/cli.js
 
 ## 🛠️ Por hacer
 
-- [ ] Monitoreo de procesos de scripts externos.
+- [x] Monitoreo de procesos de scripts.
 - [ ] Configuración global y `.dashitrc`.
 - [ ] Soporte multi-workspace.
 - [ ] Exportar reportes (`deps`, `audit`, `system`) a archivo.

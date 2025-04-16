@@ -1,10 +1,36 @@
 {
 	"name": "dashit-navi",
-	"version": "0.0.0",
+	"version": "0.0.1",
 	"license": "MIT",
 	"bin": {
 		"dashit-navi": "./dist/cli.js"
 	},
+	"description": "Una TUI para administrar proyectos Node.js desde la terminal.",
+	"keywords": [
+		"cli",
+		"tui",
+		"terminal",
+		"ink",
+		"project-manager",
+		"scripts",
+		"node",
+		"dependencies",
+		"git",
+		"npm",
+		"yarn",
+		"pnpm",
+		"dashboard"
+	],
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/devflorez/dashit-navi.git"
+	},
+	"author": "Cristian Florez <ingenieroflorezco@gmail.com>",
+	"bugs": {
+		"url": "https://github.com/devflorez/dashit-navi/issues"
+	},
+	"homepage": "https://github.com/devflorez/dashit-navi#readme",
+	"license": "MIT",
 	"type": "module",
 	"engines": {
 		"node": ">=16"

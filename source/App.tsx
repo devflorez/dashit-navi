@@ -45,7 +45,6 @@ const App = () => {
 				└─────────────────────────────────────────────────────────────────────────┘
 			</Text>
 
-			{/* Sección activa */}
 			<Box marginTop={1}>
 				{tab === 0 && <ProjectSummary />}
 				{tab === 1 && <Scripts onSetWaiting={setWaiting} />}
