@@ -86,8 +86,8 @@ const GitStatus = () => {
 				<Select
 					options={[
 						{ label: '➕ git add .', value: 'add' },
-						{ label: '⬆️ git push', value: 'push' },
-						{ label: '⬇️ git pull', value: 'pull' },
+						{ label: '⬆️  git push', value: 'push' },
+						{ label: '⬇️  git pull', value: 'pull' },
 						{ label: '💬 git commit -m', value: 'commit' },
 						{ label: '🔁 Refrescar estado', value: 'refresh' },
 					]}
