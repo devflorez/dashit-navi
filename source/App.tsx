@@ -7,6 +7,7 @@ import Maintenance from './modules/Maintenance.js';
 import SystemInfo from './modules/SystemInfo.js';
 import PackageManagerSwitcher from './modules/PackageManagerSwitcher.js';
 import GitStatus from './modules/GitStatus.js';
+import RunningScripts from './modules/RunningProcesses.js';
 
 const App = () => {
 	const [tab, setTab] = useState(0);
@@ -23,14 +24,28 @@ const App = () => {
 		if (input === '5') setTab(4);
 		if (input === '6') setTab(5);
 		if (input === '7') setTab(6);
+		if (input === '8') setTab(7);
 	});
 
 	return (
 		<Box flexDirection="column" padding={1}>
-			<Text>╔══════════════════════════ DASHIT-NAVI ════════════════════════╗</Text>
-			<Text>║ [1] Resumen  [2] Scripts  [3] Dependencias  [4] Mantenimiento ║</Text>
-			<Text>║ [5] Sistema  [6] Gestor de paquetes         [7] Git           ║</Text>
-			<Text>╚═══════════════════════════════════════════════════════════════╝</Text>
+			<Text color="cyan" bold>
+				┌────────────────────────────── DASHIT-NAVI ──────────────────────────────┐
+			</Text>
+			<Text>
+				│ [1] 📦 Resumen        │ [2] 📜 Scripts        │ [3] 📊 Dependencias     │
+			</Text>
+			<Text>
+				│ [4] 🧹 Mantenimiento  │ [5] 🖥️  Sistema        │ [6] 🔁 Paquetes         │
+			</Text>
+			<Text>
+				│ [7] 🌿 Git            │ [8] ⚙️  Procesos       │                         │
+			</Text>
+			<Text color="cyan" bold>
+				└─────────────────────────────────────────────────────────────────────────┘
+			</Text>
+
+			{/* Sección activa */}
 			<Box marginTop={1}>
 				{tab === 0 && <ProjectSummary />}
 				{tab === 1 && <Scripts onSetWaiting={setWaiting} />}
@@ -39,8 +54,10 @@ const App = () => {
 				{tab === 4 && <SystemInfo />}
 				{tab === 5 && <PackageManagerSwitcher />}
 				{tab === 6 && <GitStatus />}
+				{tab === 7 && <RunningScripts />}
 			</Box>
-			<Text color="gray">(Presiona 1-7 para cambiar sección, q para salir)</Text>
+
+			<Text color="gray">(Presiona 1–8 para cambiar sección, q para salir)</Text>
 		</Box>
 	);
 };

@@ -42,6 +42,7 @@ const RunningScripts = () => {
 
 		if (action === 'terminate') {
 			killScript(selected.id);
+			setSelectedScriptId(null);
 			setScripts(getRunningScripts());
 		} else if (action === 'back') {
 			setSelectedScriptId(null);
