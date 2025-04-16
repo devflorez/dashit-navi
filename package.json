@@ -1,6 +1,6 @@
 {
 	"name": "dashit-navi",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"license": "MIT",
 	"bin": {
 		"dashit-navi": "./dist/cli.js"
@@ -30,7 +30,6 @@
 		"url": "https://github.com/devflorez/dashit-navi/issues"
 	},
 	"homepage": "https://github.com/devflorez/dashit-navi#readme",
-	"license": "MIT",
 	"type": "module",
 	"engines": {
 		"node": ">=16"
