@@ -1,43 +1,33 @@
-import React, { useState, useEffect } from 'react';
-import { Box, Text } from 'ink';
-
+import React, { useState } from 'react';
+import { Box, Text, useInput } from 'ink';
 import ProjectSummary from './modules/ProjectSummary.js';
-
-
-const tabs = ['Resumen'];
-const components = [
-	<ProjectSummary key='ProjectSummary' />,
-];
+import Scripts from './modules/Scripts.js';
 
 const App = () => {
 	const [tab, setTab] = useState(0);
+	const [waiting, setWaiting] = useState(false);
 
-	useEffect(() => {
-		const handler = (data: Buffer) => {
-			const key = data.toString();
-			if (key === 'q') process.exit(0);
-			const num = parseInt(key);
-			if (!isNaN(num) && num >= 1 && num <= 6) {
-				setTab(num - 1);
-			}
-		};
+	useInput((input) => {
+		if (waiting) {
+			setWaiting(false);
+			return;
+		}
 
-		process.stdin.setRawMode?.(true);
-		process.stdin.resume();
-		process.stdin.on('data', handler);
-
-		return () => {
-			process.stdin.off('data', handler);
-		};
-	}, []);
+		if (input === 'q') process.exit(0);
+		if (input === '1') setTab(0);
+		if (input === '2') setTab(1);
+	});
 
 	return (
 		<Box flexDirection="column" padding={1}>
 			<Text>╔════════════════════ DASHIT-NAVI ═══════════════════╗</Text>
-			<Text>║ {tabs.map((t, i) => `[${i + 1}] ${t} `).join('')}║</Text>
+			<Text>║ [1] Resumen  [2] Scripts                           ║</Text>
 			<Text>╚════════════════════════════════════════════════════╝</Text>
-			<Box marginTop={1}>{components[tab]}</Box>
-			<Text color="gray">(Presiona 1-6 para cambiar sección, q para salir)</Text>
+			<Box marginTop={1}>
+				{tab === 0 && <ProjectSummary />}
+				{tab === 1 && <Scripts onSetWaiting={setWaiting} />}
+			</Box>
+			<Text color="gray">(Presiona 1-2 para cambiar sección, q para salir)</Text>
 		</Box>
 	);
 };
